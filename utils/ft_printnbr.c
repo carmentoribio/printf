@@ -20,18 +20,15 @@ void	ft_printint(int n, int *nchars)
 			*nchars += write(1, "-2147483648", 11);
 			return ;
 		}
-		*nchars += write(1, '-', 1);
-		n *= -1;
+		*nchars += write(1, "-", 1);
+		n = -n;
 	}
 	ft_printuint((unsigned int) n, nchars);
 }
 
 void	ft_printuint(unsigned int n, int *nchars)
 {
-	char	nb;
-
-	if (n / 10 != 0)
+	if (n > 9)
 		ft_printuint(n / 10, nchars);
-	nb = (n % 10) + '0';
-	*nchars += write(1, &nb, 1);
+	*nchars += write(1, &("0123456789"[n % 10]), 1);
 }

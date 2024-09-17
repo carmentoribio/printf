@@ -11,8 +11,8 @@
 # **************************************************************************** #
 NAME = libftprintf.a
 
-SRC =
-OBJ =
+SRC = ft_printf.c utils/ft_printstr.c utils/ft_printnbr.c utils/ft_printmem.c 
+OBJ = $(SRC:.c=.o)
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
