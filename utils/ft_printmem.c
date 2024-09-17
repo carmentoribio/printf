@@ -9,6 +9,7 @@
 /*   Updated: 2024/09/05 17:09:34 by ctoribio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../ft_printf.h"
 
 void	ft_printmadd(unsigned long long addr, int *nchars)
 {
@@ -19,12 +20,11 @@ void	ft_printmadd(unsigned long long addr, int *nchars)
 	}
 	*nchars += write(1, "0x", 2);
 	ft_printhex(addr, "0123456789abcdef", nchars);
-
 }
 
-void	ft_printhex(unsigned long long num, char* base, int *nchars)
+void	ft_printhex(unsigned long long num, char *base, int *nchars)
 {
-	if (num/16 != 0)
-		ft_printhex(num/16, base, nchars);
-	*nchars += write(1, &base[num%16], 1);
+	if (num / 16 != 0)
+		ft_printhex(num / 16, base, nchars);
+	*nchars += write(1, &base[num % 16], 1);
 }

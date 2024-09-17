@@ -9,12 +9,13 @@
 /*   Updated: 2024/09/16 18:59:50 by ctoribio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../ft_printf.h"
 
 void	ft_printint(int n, int *nchars)
 {
 	if (n < 0)
 	{
-		if (n = -2147483648)
+		if (n == -2147483648)
 		{
 			*nchars += write(1, "-2147483648", 11);
 			return ;
@@ -25,12 +26,12 @@ void	ft_printint(int n, int *nchars)
 	ft_printuint((unsigned int) n, nchars);
 }
 
-void ft_printuint(unsigned int n, int *nchars)
+void	ft_printuint(unsigned int n, int *nchars)
 {
 	char	nb;
 
-	if (n/10 != 0)
-		ft_printuint(n/10, nchars);
+	if (n / 10 != 0)
+		ft_printuint(n / 10, nchars);
 	nb = (n % 10) + '0';
 	*nchars += write(1, &nb, 1);
 }

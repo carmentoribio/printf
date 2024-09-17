@@ -9,8 +9,7 @@
 /*   Updated: 2024/08/19 17:02:24 by ctoribio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-# include <stdarg.h>
-
+#include "ft_printf.h"
 
 void	print_format(const char c, va_list args, int *nchars)
 {
@@ -20,11 +19,11 @@ void	print_format(const char c, va_list args, int *nchars)
 		ft_printstr(va_arg(args, char *), nchars);
 	else if (c == 'd' || c == 'i')
 		ft_printint(va_arg(args, int), nchars);
-	else if (c =='u')
+	else if (c == 'u')
 		ft_printuint(va_arg(args, unsigned int), nchars);
 	else if (c == 'p')
 		ft_printmadd(va_arg(args, unsigned long long), nchars);
-	else if (c=='x')
+	else if (c == 'x')
 		ft_printhex(
 			va_arg(args, unsigned long long), "0123456789abcdef", nchars);
 	else if (c == 'X')

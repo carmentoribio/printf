@@ -9,6 +9,7 @@
 /*   Updated: 2024/09/05 17:09:43 by ctoribio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../ft_printf.h"
 
 void	ft_printchar(char c, int *nchars)
 {
