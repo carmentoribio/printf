@@ -6,7 +6,7 @@
 /*   By: ctoribio <ctoribio@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 10:18:16 by ctoribio          #+#    #+#             */
-/*   Updated: 2024/09/18 17:32:35 by ctoribio         ###   ########.fr       */
+/*   Updated: 2024/09/18 19:02:53 by ctoribio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,56 @@ int	main()
 	printf("TESTS MIXED FLAGS\n\n");
 	
 	printf("return printf(): %d\treturn ft_printf(): %d\n\n",
-			printf("Hola esto es un char: %c%p\n", &x),
+			printf("Hola %s, esto es un char: %c que está alocado en %p\nEl mayor entero es: %d\nEl menor entero es: %i\nEl mayor unsigned int es: %u, con valor hexadecimal %X (o bien %x)\nMe queda un 42%%\n",
+				"holita", c, &c, INT_MAX, INT_MIN, UINT_MAX, UINT_MAX, UINT_MAX),
+			ft_printf("Hola %s, esto es un char: %c que está alocado en %p\nEl mayor entero es: %d\nEl menor entero es: %i\nEl mayor unsigned int es: %u, con valor hexadecimal %X (o bien %x)\nMe queda un 42%%\n",
+				"holita", c, &c, INT_MAX, INT_MIN, UINT_MAX, UINT_MAX, UINT_MAX));
 
+	printf("return printf(): %d\treturn ft_printf(): %d\n\n",
+			printf("%d%u%s%%%%%%%s%X%p\n", 983204392, 88, "hola", "hello", 95654, &x),
+			ft_printf("%d%u%s%%%%%%%s%X%p\n", 983204392, 88, "hola", "hello", 95654, &x));
+
+	// Tests casos limite -------------
+	printf("TESTS CASOS LIMITE\n\n");
+
+	printf("return printf(): %d\treturn ft_printf(): %d\n\n",
+			printf("Character: '%c'\n", '\0'),
+			ft_printf("Character: '%c'\n", '\0')
+			);	
+	
+	printf("return printf(): %d\treturn ft_printf(): %d\n\n",
+			printf("String: '%s'\n", (char *)NULL),
+			ft_printf("String: '%s'\n", (char *)NULL)
+			);
+
+	printf("return printf(): %d\treturn ft_printf(): %d\n\n",
+			printf("String: '%s'\n", ""),
+			ft_printf("String: '%s'\n", "")
+			);
+	
+	printf("return printf(): %d\treturn ft_printf(): %d\n\n",
+			printf("Pointer: %p\n", (void *)NULL),
+			ft_printf("Pointer: %p\n", (void *)NULL)
+			);
+
+	printf("return printf(): %d\treturn ft_printf(): %d\n\n",
+			printf("Decimal: %d\n", INT_MIN),
+			ft_printf("Decimal: %d\n", INT_MIN)
+			);
+
+	printf("return printf(): %d\treturn ft_printf(): %d\n\n",
+			printf("Unsigned: %u\n", -1),
+			ft_printf("Unsigned: %u\n", -1)
+			);
+
+	printf("return printf(): %d\treturn ft_printf(): %d\n\n",
+			printf("Hex lower: %x\n", 255),
+			ft_printf("Hex lower: %x\n", 255)
+			);
+
+	printf("return printf(): %d\treturn ft_printf(): %d\n\n",
+			printf("Hex upper: %X\n", 255),
+			ft_printf("Hex upper: %X\n", 255)
 			);
 
 	return (0);
