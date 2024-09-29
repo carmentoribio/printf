@@ -39,25 +39,23 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		nchars;
-	int		flag;
 
 	va_start(args, str);
 	nchars = 0;
 	while (*str)
 	{
-		flag = nchars;
-		if (*str == '%' && *(str + 1))
+		if (*str == '%')
 		{
 			str++;
+			if (!*(str))
+			{
+				va_end(args);
+				return (-1);
+			}
 			print_format(*str, args, &nchars);
 		}
 		else
 			nchars += write(1, str, 1);
-		if (nchars < flag)
-		{
-			va_end(args);
-			return (-1);
-		}
 		str++;
 	}
 	va_end(args);
